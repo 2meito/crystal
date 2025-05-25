@@ -1,4 +1,4 @@
 #/bin/bash
 mv ./home/namish $USER
-sed -i "s/namish/$USER/" ./*.nix
+find ./ -type f -name "*.nix" -exec sed -i "s/namish/$USER/g" {} \;
 sudo nixos-rebuild switch --flake .#frostbyte
